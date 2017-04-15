@@ -18,9 +18,9 @@ import static org.uqbar.geodds.NumberUtils.*
 @Accessors
 class Point implements Coordenadas{
 	
-	Double x
+	double x
 
-	Double y
+	double y
 	
 	/**
 	 * Constructor default para que lo pueda usar algun

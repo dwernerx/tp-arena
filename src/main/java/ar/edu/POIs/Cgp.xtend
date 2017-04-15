@@ -14,6 +14,8 @@ import org.joda.time.DateTime
 import org.uqbar.commons.utils.Observable
 import org.uqbar.geodds.Point
 import org.uqbar.geodds.Punto
+import org.hibernate.annotations.LazyCollection
+import org.hibernate.annotations.LazyCollectionOption
 
 @Entity
 @Observable
@@ -21,12 +23,13 @@ import org.uqbar.geodds.Punto
 @DiscriminatorValue("3")
 class Cgp extends Poi {
 	
-	@OneToOne(fetch=FetchType.LAZY, cascade=CascadeType.ALL)// Si LAZY para que cuando los metodos de este lo llamen lo pida y fue.Es cascada, porque la comuna pertenece a un cgp.
+	@OneToOne(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
 	Comuna comuna
 	
-//	@Transactional
-	@ManyToMany(fetch = FetchType.LAZY)
-//	@LazyCollection(LazyCollectionOption.FALSE)
+	//le digo que es EAGER, para no ponerlo directamente porque JPA odia tener un eager en cascada con otro EAGER.
+	//http://stackoverflow.com/questions/4334970/hibernate-cannot-simultaneously-fetch-multiple-bags
+	@LazyCollection(LazyCollectionOption.FALSE)
+	@ManyToMany
 	List<ServicioCGP> servicios = new ArrayList<ServicioCGP>
 
 	new(Comuna _comuna, Direccion _miDireccion) {

@@ -140,7 +140,7 @@ class Point implements Coordenadas{
 	}
 
 	override void setX(double aX) {
-		//x = aX
+		x = aX
 	}
 	
 	override getY() {
@@ -148,6 +148,6 @@ class Point implements Coordenadas{
 	}
 
 	override void setY(double aY) {
-//		y = aY
+		y = aY
 	}
 }

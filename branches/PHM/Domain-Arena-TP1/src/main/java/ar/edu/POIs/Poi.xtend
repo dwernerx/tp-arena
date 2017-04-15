@@ -51,7 +51,7 @@ abstract class Poi{
 	@ElementCollection
 	@CollectionTable(name = "Palabras_Clave", joinColumns=@JoinColumn(name="id_poi"))
 	@Column(name = "palabraClave")
-	@LazyCollection(LazyCollectionOption.FALSE)
+	@LazyCollection(LazyCollectionOption.FALSE) //no probé con TRUE
 	Set<String> palabrasClave = newHashSet
 	
 	@Column(length=150)

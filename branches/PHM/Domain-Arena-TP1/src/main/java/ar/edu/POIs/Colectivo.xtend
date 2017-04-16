@@ -13,6 +13,8 @@ import org.joda.time.DateTime
 import org.uqbar.commons.utils.Observable
 import ar.edu.Utilities.StringUtilities
 import org.uqbar.geodds.Punto
+import org.hibernate.annotations.LazyCollection
+import org.hibernate.annotations.LazyCollectionOption
 
 @Entity
 @Observable
@@ -21,9 +23,9 @@ import org.uqbar.geodds.Punto
 class Colectivo extends Poi {
 	@Column(length=20)
 	String linea
-
+	
+	@LazyCollection(LazyCollectionOption.FALSE)//MALO MUY MALO PERO FUNCA, EAGER NO SIRVE...
 	@OneToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
-	@Column(name="Parada")
 	List<Punto> recorrido = new ArrayList<Punto>
 
 	new(String _linea) {

@@ -16,7 +16,7 @@ import org.uqbar.geodds.Punto
 @DiscriminatorValue("4")
 class LocalComercial extends Poi {
 	
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.EAGER)//Lo necesito siempre para mostrar por pantalla el nombre que uso en getNombre papu.
 	Rubro rubro
 	
 	@Column(length=150)

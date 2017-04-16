@@ -89,7 +89,7 @@ class Usuario {
 		RepositorioPoi.instance.searchById(id)
 	}
 	
-	def boolean getPoiEstaEnFavoritos(Poi poiAVerificar) { // TODO le pongo get por si lo usamos de propiedad
+	def boolean poiEstaEnFavoritos(Poi poiAVerificar) { // TODO le pongo get por si lo usamos de propiedad //ño D:
 		listaFavoritos.contains(poiAVerificar)
 	}
 

@@ -20,7 +20,7 @@ class Direccion {
 	@GeneratedValue
 	private Long id
 
-	@OneToOne(fetch=FetchType.LAZY, cascade=CascadeType.ALL)//Eager o lazy? siempre lo va a pedir pero colectivo no..
+	@OneToOne(fetch=FetchType.EAGER, cascade=CascadeType.ALL)//Siempre que traigo direccion quiero el punto
 	Punto ubicacion
 
 	@Column

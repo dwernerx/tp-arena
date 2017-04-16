@@ -32,7 +32,8 @@ class Punto extends DecoradorDeCoordenadas {
 	}
 
 	def distance(Punto anotherPoint) {
-		super.distance(new Point(anotherPoint.x, anotherPoint.y))
+		val point = new Point(x,y)//Volviendo a la negrada, porque no funcionaba una clase arriba.
+		point.distance(new Point(anotherPoint.x, anotherPoint.y))
 	}
 
 	def intersects(Punto anotherPoint, Punto anotherAnotherPoint) {

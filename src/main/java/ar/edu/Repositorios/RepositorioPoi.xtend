@@ -24,9 +24,8 @@ class RepositorioPoi extends RepoDefault<Poi> {
 		instance
 	}
 
-	def List<Poi> search(String valorBuscado) {
-		allInstances().filter[o|o.matchearPoi(valorBuscado)].toList
-		//add RepositorioCgp.instance.allInstances.search(valorBuscado)
+	def List<Poi> filtrarBusqueda(String valorBuscado) {
+		allInstances.filter[o|o.matchearPoi(valorBuscado)].toList
 	}
 
 	def List<Poi> buscadorPoisPersonales(Usuario usuario) {

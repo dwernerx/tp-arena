@@ -19,7 +19,9 @@ class Comuna {
 	@GeneratedValue
 	private Long id
 
-	@OneToOne(fetch=FetchType.LAZY, cascade=CascadeType.ALL) // Traigo el poligono cuando necesito saber la ubicacion, borro el poligono en cascada, solo pertenecen a este cgp.
+
+	//LA IDEA ERA QUE FUESE LAZY :(
+	@OneToOne(fetch=FetchType.EAGER, cascade=CascadeType.ALL) // Traigo el poligono cuando necesito saber la ubicacion, borro el poligono en cascada, solo pertenecen a este cgp.
 	Poligono zonaComuna
 
 	@Column

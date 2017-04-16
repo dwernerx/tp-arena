@@ -23,7 +23,7 @@ class DecoradorDeCoordenadas implements Coordenadas {
 	}
 	
 	override distance(Point anotherPoint) {
-		point.distance(anotherPoint)
+		return point.distance(anotherPoint)
 	}
 	
 	override toRadian(double angle) {

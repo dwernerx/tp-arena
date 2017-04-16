@@ -688,31 +688,100 @@ Poligono poligono1
 		crearCalificacion(calificacion12)
 	}
 
-//
+
+
+//------------------- TESTS--------------------------// 
+
+//FUNCIONANDO
+
 //@Test
 //	def void poiBancoSantanderEnLaBD(){
 //		var bancoBD = repositorioPoi.searchById(bancoSantander.id)
 //		Assert.assertEquals(this.bancoSantander.nombre, bancoBD.nombre)		
 //	}
 //@Test
-//	def void poiDadoDeBaja(){
+//	def void elBancoSeLlamaSantander(){ 
 //		var bancoBD = repositorioPoi.searchById(bancoSantander.id)
-//		repositorioPoi.remove(bancoBD)
-//		Assert.assertEquals(null,(repositorioPoi.searchById(bancoSantander.id)))
-//	}
-@Test
-	def void elBancoSeLlamaSantander(){ 
-		var bancoBD = repositorioPoi.searchById(bancoSantander.id)
-		Assert.assertEquals(bancoBD.nombre,"Banco Santander")		
-}
+//		Assert.assertEquals(bancoBD.nombre,"Banco Santander")		
+//}
 //@Test
 //	def void poiVerduleriaEnLaBD(){
 //		var verduDB = repositorioPoi.searchById(verduleriaManolo.id)
 //		Assert.assertEquals(this.verduleriaManolo.nombre, verduDB.nombre)		
 //	}
 
+//@Test
+//	def void elLocalComercialSeLlamaVerduleriaManolo(){ 
+//		var verduleriaManoloBD = repositorioPoi.searchById(verduleriaManolo.id)
+//		Assert.assertEquals(verduleriaManoloBD.nombre,"Verduleria Don Manolo")		
+//}
+
+////Modificacion de un Poi	
+//@Test
+//	def void cambioDeNombreVerduleriaManoloEnBD(){ 
+//		var verduleriaManoloBD = repositorioPoi.searchById(verduleriaManolo.id)
+//		verduleriaManoloBD.setNombre("Jacinto")
+//		repositorioPoi.createOrUpdate(verduleriaManoloBD)
+//		Assert.assertEquals(verduleriaManoloBD.nombre,"Verduleria Jacinto")
+//}
+
+//FUNCIONAN CON EAGER EN CALIFICACION Y REVIEW	
+//@Test
+//	def void agregarUnReview(){ 
+//		var colectivo78BD = repositorioPoi.searchById(colectivo78.id)
+//			colectivo78BD.calificacion.agregarReview(opinion2)	
+//		var cantidadDeReviews = colectivo78BD.calificacion.cantidadDeReview
+//		Assert.assertEquals(cantidadDeReviews,3)		
+//}
+//@Test
+//	def void cantidadDeReviews(){ 
+//		var colectivo78BD = repositorioPoi.searchById(bancoSantander.id)
+//		var cantidadDeReviews = colectivo78BD.calificacion.cantidadDeReview
+//		Assert.assertEquals(cantidadDeReviews,2)		
+//}
+//---------------------------------------------------------------------	
 
 
+//DA ERROR DE CONSTRAIN
+//@Test
+//	def void poiDadoDeBaja(){
+//		var bancoBD = repositorioPoi.searchById(bancoSantander.id)
+//		repositorioPoi.remove(bancoBD)
+//		Assert.assertEquals(null,(repositorioPoi.searchById(bancoSantander.id)))
+//	}
+
+
+//INTETOS DE FECHMODE JOIN PARA EVITAR EAGER
+
+//@Test
+//	def void cantidadDeReviews(){ 
+//		var colectivo78BD = repositorioPoi.searchById(bancoSantander.id)
+//		val session = repositorioCalificacion.openSession
+//		try {
+//			session.createCriteria(Calificacion)
+//			.setFetchMode("calificacion", FetchMode.JOIN)
+//			//.add(Restrictions.eq("id", id))
+//		//	.uniqueResult as Calificacion
+//		} catch (HibernateException e) {
+//			throw new RuntimeException(e)
+//		} finally {
+//			
+//			
+//			}
+//		val session2 = repositorioReview.openSession
+//		try {
+//			session2.createCriteria(Review)
+//			.setFetchMode("review", FetchMode.JOIN)
+//		//	.uniqueResult as Review
+//		} catch (HibernateException e) {
+//			throw new RuntimeException(e)
+//		} finally {
+//		var cantidadDeReviews = colectivo78BD.calificacion.cantidadDeReview
+//		Assert.assertEquals(cantidadDeReviews,2)		
+//			session2.close
+//			session.close
+//		}
+//}
 
 }
 

@@ -33,7 +33,6 @@ class Calificacion {
 
 	def void agregarReviews(List<Review> reviews) {
 		reviews.forEach[r|agregarReview(r)]
-	// listaReview.addAll(reviews)
 	}
 
 	def void eliminarReview(Review review) {
@@ -58,8 +57,6 @@ class Calificacion {
 
 	def actualizarReview(Usuario usuario, String comentario, Integer puntuacion) {
 		val reviewUsuarioSeleccionado = listaReview.findFirst[r|r.nombreDeUsuario.equals(usuario.cuenta)]
-//		listaReview.remove(usuarioSeleccionado)
-//		agregarReview(new Review(usuario, comentario, calificacion))
 		reviewUsuarioSeleccionado.comentario = comentario
 		reviewUsuarioSeleccionado.puntuacion = puntuacion
 		reviewUsuarioSeleccionado.usuario = usuario
@@ -67,9 +64,7 @@ class Calificacion {
 	}
 	
 	def getPromedioCalificacion() {
-//		val DecimalFormat decimales = new DecimalFormat("0.0")  //muestra la calificación con un decimal
 		if (this.hayReview()) {
-//			decimales.format((this.sumaDeCalificaciones() as double / this.cantidadDeReview()) as double)
 			this.sumaDeCalificaciones() / this.cantidadDeReview() // número entero
 		} else {
 			0
@@ -94,7 +89,6 @@ class Calificacion {
 	}
 
 	def boolean usuarioYaCalifico(Usuario usuarioAVerificar) {
-//		listaReview.exists[r|r.usuario.equals(usuarioAVerificar)]
 		listaReview.exists[r|r.usuario.cuenta == usuarioAVerificar.cuenta]
 	}
 }

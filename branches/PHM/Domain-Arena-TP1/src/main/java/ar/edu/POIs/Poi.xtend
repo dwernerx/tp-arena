@@ -45,7 +45,6 @@ abstract class Poi{
 	@JoinColumn(name="HORARIO_ID",nullable=true)
 	HorarioDeAtencion horario
 	
-	//@LazyCollection(LazyCollectionOption.FALSE)
 	@OneToOne(fetch=FetchType.EAGER,cascade=CascadeType.ALL)//EAGER porque todas las pantallas lo necesitan.Bah excepto la de login, al traer listaDeFavoritos.
 	Direccion _direccion
 	

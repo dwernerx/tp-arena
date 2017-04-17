@@ -20,7 +20,7 @@ class Review {
 	@GeneratedValue
 	private Long id
 	
-	@ManyToOne(fetch=FetchType.EAGER,cascade=CascadeType.ALL) //TODO no tiene que ser cascada, hay que hacer repo Review.
+	@ManyToOne(fetch=FetchType.EAGER) //TODO no tiene que ser cascada, hay que hacer repo Review.
 	Usuario usuario
 	
 	@Column

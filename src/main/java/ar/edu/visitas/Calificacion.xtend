@@ -21,7 +21,7 @@ class Calificacion {
 	@GeneratedValue
 	private Long id
 
-	@OneToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+	@OneToMany(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
 	List<Review> listaReview
 	
 	new(){ listaReview = newArrayList}

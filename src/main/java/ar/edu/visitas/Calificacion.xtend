@@ -11,6 +11,7 @@ import javax.persistence.OneToMany
 import org.eclipse.xtend.lib.annotations.Accessors
 import org.uqbar.commons.model.UserException
 import org.uqbar.commons.utils.Observable
+import ar.edu.Repositorios.RepositorioReview
 
 @Entity
 @Observable
@@ -55,10 +56,14 @@ class Calificacion {
 		}
 	}
 
-	def actualizarReview(Usuario usuario, String comentario, Integer calificacion) {
-		val usuarioSeleccionado = listaReview.findFirst[r|r.nombreDeUsuario.equals(usuario.cuenta)]
-		listaReview.remove(usuarioSeleccionado)
-		agregarReview(new Review(usuario, comentario, calificacion))
+	def actualizarReview(Usuario usuario, String comentario, Integer puntuacion) {
+		val reviewUsuarioSeleccionado = listaReview.findFirst[r|r.nombreDeUsuario.equals(usuario.cuenta)]
+//		listaReview.remove(usuarioSeleccionado)
+//		agregarReview(new Review(usuario, comentario, calificacion))
+		reviewUsuarioSeleccionado.comentario = comentario
+		reviewUsuarioSeleccionado.puntuacion = puntuacion
+		reviewUsuarioSeleccionado.usuario = usuario
+		RepositorioReview.instance.createOrUpdate(reviewUsuarioSeleccionado)
 	}
 
 	def getPromedioCalificacion() {
@@ -89,6 +94,7 @@ class Calificacion {
 	}
 
 	def boolean usuarioYaCalifico(Usuario usuarioAVerificar) {
-		listaReview.exists[r|r.usuario.equals(usuarioAVerificar)]
+//		listaReview.exists[r|r.usuario.equals(usuarioAVerificar)]
+		listaReview.exists[r|r.usuario.cuenta == usuarioAVerificar.cuenta]
 	}
 }

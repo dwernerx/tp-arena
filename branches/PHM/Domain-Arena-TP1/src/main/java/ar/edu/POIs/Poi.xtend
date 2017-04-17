@@ -86,7 +86,7 @@ abstract class Poi{
 	@Transient
 	BigDecimal distancia = new BigDecimal(0.00)
 	@Transient
-	Boolean estaCerca = false
+	Boolean estaCerca
 	@Transient
 	Boolean estaEnFavoritos
 	@Transient

@@ -73,7 +73,8 @@ class Usuario {
 //	}
 
 	def eliminarPoiFavorito(Poi poi) {
-		listaFavoritos.remove(poi)
+		val pois = listaFavoritos.filter[p|p.id == poi.id]
+		listaFavoritos.remove(pois.get(0))
 	}
 
 	def agregarPoiFavorito(Poi poi) {
@@ -89,8 +90,7 @@ class Usuario {
 		RepositorioPoi.instance.searchById(id)
 	}
 	
-	def boolean poiEstaEnFavoritos(Poi poiAVerificar) { // TODO le pongo get por si lo usamos de propiedad //ño D:
-//		listaFavoritos.contains(poiAVerificar)
+	def boolean poiEstaEnFavoritos(Poi poiAVerificar) {
 		listaFavoritos.exists[poi|poi.id == poiAVerificar.id]
 	}
 

@@ -55,7 +55,7 @@ abstract class Poi{
 	@LazyCollection(LazyCollectionOption.FALSE) //no probé con TRUE,//Se usa tmb en Cgp, ahi esta explicado el funcionamiento de la funcion en FALSE
 	Set<String> palabrasClave = newHashSet
 	
-	@OneToOne(fetch=FetchType.LAZY,cascade=CascadeType.ALL)
+	@OneToOne(fetch=FetchType.EAGER,cascade=CascadeType.ALL)
 	Calificacion calificacion = new Calificacion()
 	
 	@Column(length=150)

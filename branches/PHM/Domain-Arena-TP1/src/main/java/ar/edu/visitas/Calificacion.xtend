@@ -65,7 +65,7 @@ class Calificacion {
 		reviewUsuarioSeleccionado.usuario = usuario
 		RepositorioReview.instance.createOrUpdate(reviewUsuarioSeleccionado)
 	}
-
+	
 	def getPromedioCalificacion() {
 //		val DecimalFormat decimales = new DecimalFormat("0.0")  //muestra la calificación con un decimal
 		if (this.hayReview()) {

@@ -53,9 +53,7 @@ class RepositorioPoi extends RepoDefault<Poi> {
 		val session = openSession
 		try {
 			session.createCriteria(Poi)
-			.setFetchMode("pois", FetchMode.JOIN)
-//			.setFetchMode("palabraClave", FetchMode.JOIN)
-//			.setFetchMode("servicios", FetchMode.JOIN)
+			.setFetchMode("calificacion", FetchMode.JOIN)
 			.add(Restrictions.eq("id", id)).uniqueResult as Poi
 		} catch (HibernateException e) {
 			throw new RuntimeException(e)

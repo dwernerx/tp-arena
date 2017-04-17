@@ -9,6 +9,8 @@ import org.eclipse.xtend.lib.annotations.Accessors
 import org.uqbar.commons.utils.Observable
 import javax.persistence.ManyToMany
 import javax.persistence.FetchType
+import org.hibernate.annotations.LazyCollectionOption
+import org.hibernate.annotations.LazyCollection
 
 @Entity
 @Observable
@@ -19,6 +21,7 @@ class Banco extends Poi {
 	@Column(length=50)
 	String nombreBanco
 
+	@LazyCollection(LazyCollectionOption.FALSE)
 	@ManyToMany(fetch=FetchType.LAZY)
 	List<Servicio> servicios = newArrayList
 
@@ -45,8 +48,9 @@ class Banco extends Poi {
 		nombreMasBarrio
 	}
 
-	def String serviciosToString() {
-		String.join("\n", servicios.toString())
+	def String serviciosToString(){
+			var listaNombreServicios = servicios.map[s|s.nombre].toList
+			String.join("\n", listaNombreServicios)
 	}
 
 }

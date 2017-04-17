@@ -90,7 +90,8 @@ class Usuario {
 	}
 	
 	def boolean poiEstaEnFavoritos(Poi poiAVerificar) { // TODO le pongo get por si lo usamos de propiedad //ño D:
-		listaFavoritos.contains(poiAVerificar)
+//		listaFavoritos.contains(poiAVerificar)
+		listaFavoritos.exists[poi|poi.id == poiAVerificar.id]
 	}
 
 }

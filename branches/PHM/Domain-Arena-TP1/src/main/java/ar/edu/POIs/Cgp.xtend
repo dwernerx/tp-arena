@@ -12,7 +12,6 @@ import javax.persistence.OneToOne
 import org.eclipse.xtend.lib.annotations.Accessors
 import org.joda.time.DateTime
 import org.uqbar.commons.utils.Observable
-import org.uqbar.geodds.Point
 import org.uqbar.geodds.Punto
 import org.hibernate.annotations.LazyCollection
 import org.hibernate.annotations.LazyCollectionOption

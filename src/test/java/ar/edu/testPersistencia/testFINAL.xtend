@@ -38,7 +38,7 @@ import org.uqbar.geodds.Punto
 class testFINAL {
 	
 
-Poligono poligono1
+	Poligono poligono1
 	Poligono poligono2
 	Poligono poligono3
 	Poligono poligono4
